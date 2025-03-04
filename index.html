@@ -18,7 +18,27 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #112c36, #006e84);
+            background: linear-gradient(135deg, #122324, #01a7b3);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            animation: slideUpFade 1s ease-in-out 1s forwards;
+        }
+        @keyframes slideUpFade {
+            from { transform: translateY(0) scale(1); opacity: 1; }
+            to { transform: translateY(-100%) scale(1.1); opacity: 0; }
         }
         video {
             position: fixed;
@@ -51,6 +71,12 @@
             text-align: center;
             backdrop-filter: blur(5px);
             border-radius: 50px;
+            animation: fadeIn 1.5s ease-in-out 2s forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
         .title {
             font-size: 24px;
@@ -72,14 +98,16 @@
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s ease;
+            transition: background 0.3s ease, transform 0.2s;
         }
         .btn:hover {
             background: linear-gradient(135deg, #2a5298, #1e3c72);
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
+    <div class="overlay">Loading...</div>
     <div class="video-container">
         <video autoplay loop muted playsinline preload="auto" poster="your-image.jpg" oncanplay="this.style.display='block'">
             <source src="a1.mp4" type="video/mp4">
