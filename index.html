@@ -18,7 +18,7 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #21687a, #233636);
+            background: linear-gradient(135deg, #18272e, #031b20);
         }
         video {
             position: absolute;
@@ -27,6 +27,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: -1;
+            display: none;
+        }
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
         }
         .centered-box {
@@ -60,7 +69,7 @@
             padding: 10px 20px;
             font-size: 16px;
             color: white;
-            background: linear-gradient(135deg, #00fbde, #000000);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s ease;
@@ -71,10 +80,11 @@
     </style>
 </head>
 <body>
-    <video autoplay loop muted>
-        <source src="a1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+        <video autoplay loop muted preload="auto" poster="your-image.jpg" oncanplay="this.style.display='block'">
+            <source src="a1.mp4" type="video/mp4">
+        </video>
+    </div>
     <div class="centered-box">
         <div class="title">Welcome to our survey</div>
         <div class="paragraph">We want to survey people about electric cars and gasoline cars. Many prefer electric cars for lower costs and environmental benefits. Gasoline cars remain popular, but may lose ground in the future.</div>
