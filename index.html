@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Div with Video</title>
+    <title>survey</title>
     <style>
         * {
             margin: 0;
@@ -18,10 +18,10 @@
             height: 100vh;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(135deg, #18272e, #031b20);
+            background: linear-gradient(135deg, #112c36, #006e84);
         }
         video {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -31,7 +31,7 @@
             display: none;
         }
         .video-container {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -50,7 +50,7 @@
             align-items: center;
             text-align: center;
             backdrop-filter: blur(5px);
-            border-radius: 50px; /* Rounded edges */
+            border-radius: 50px;
         }
         .title {
             font-size: 24px;
@@ -81,7 +81,7 @@
 </head>
 <body>
     <div class="video-container">
-        <video autoplay loop muted preload="auto" poster="your-image.jpg" oncanplay="this.style.display='block'">
+        <video autoplay loop muted playsinline preload="auto" poster="your-image.jpg" oncanplay="this.style.display='block'">
             <source src="a1.mp4" type="video/mp4">
         </video>
     </div>
